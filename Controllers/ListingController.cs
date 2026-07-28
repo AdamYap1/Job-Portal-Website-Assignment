@@ -1,48 +1,82 @@
-﻿using System;
+﻿using Job_Portal_Website.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
-public class ListingController : Controller
+namespace Job_Portal_Website.Controllers
 {
-    private readonly ApplicationDbContext _context;
-
-    public ListingsController(ApplicationDbContext context)
+    public class ListingsController : Controller
     {
-        _context = context;
-    }
+        private readonly ApplicationDbContext _context;
 
-    // US-08: Post job listing
-    [HttpPost]
-    public IActionResult Create(JobListing listing)
-    {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
+        public ListingsController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
-        _context.JobListings.Add(listing);
-        _context.SaveChanges();
-        return Ok(listing);
-    }
+        private int CurrentUserId => int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-    // US-12: View listing details
-    [HttpGet]
-    public IActionResult Details(int id)
-    {
-        var listing = _context.JobListings
-            .Include(l => l.Employer)
-            .FirstOrDefault(l => l.Id == id);
+        // ---------- US-08: Post Job Listing (Employer only) ----------
 
-        if (listing == null || listing.IsClosed)
-            return NotFound("Listing not available");
+        [Authorize(Roles = "Employer")]
+        [HttpGet]
+        public IActionResult Create() => View();
 
-        return Ok(listing);
-    }
+        [Authorize(Roles = "Employer")]
+        [HttpPost]
+        public IActionResult Create(JobListing listing)
+        {
+            if (string.IsNullOrWhiteSpace(listing.jobTitle) ||
+                string.IsNullOrWhiteSpace(listing.jobDesc) ||
+                string.IsNullOrWhiteSpace(listing.jobRequirements))
+            {
+                ModelState.AddModelError("", "Title, description, and requirements are required.");
+                return View(listing);
+            }
 
-    // US-18: Search by text
-    [HttpGet]
-    public IActionResult Search(string keyword)
-    {
-        var results = _context.JobListings
-            .Where(l => !l.IsClosed && l.Title.Contains(keyword))
-            .ToList();
+            listing.employerId = CurrentUserId;
+            _context.JobListing.Add(listing);
+            _context.SaveChanges();
 
-        return Ok(results);
+            return RedirectToAction("Details", new { id = listing.jobListId });
+        }
+
+        // ---------- US-12: View Listing Details ----------
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var listing = _context.JobListing
+                .Include(l => l.Employer)
+                .FirstOrDefault(l => l.jobListId == id);
+
+            if (listing == null || listing.isClosed)
+            {
+                return NotFound("This job listing is no longer available.");
+            }
+
+            return View(listing);
+        }
+
+        // ---------- US-18: Search by Text ----------
+
+        [HttpGet]
+        public IActionResult Search(string keyword)
+        {
+            var query = _context.JobListing.Where(l => !l.isClosed);
+
+            if (!string.IsNullOrWhiteSpace(keyword))
+            {
+                query = query.Where(l => l.jobTitle.Contains(keyword));
+            }
+
+            var results = query.Include(l => l.Employer).ToList();
+
+            ViewBag.Keyword = keyword;
+            ViewBag.NoResults = !results.Any();
+
+            return View(results);
+        }
     }
 }
