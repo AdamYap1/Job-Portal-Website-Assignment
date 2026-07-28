@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../JobPortalWebsiteTests/JobPortalWebsiteTests.csproj" Id="b25a1690-33d8-4fd1-81c0-516214b7d4d1" />
+  <Project Path="JobPortalWebsite.csproj" />
+</Solution>
