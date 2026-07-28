@@ -1,4 +1,7 @@
 <Solution>
+<<<<<<< HEAD
   <Project Path="../JobPortalWebsiteTests/JobPortalWebsiteTests.csproj" Id="b25a1690-33d8-4fd1-81c0-516214b7d4d1" />
+=======
+>>>>>>> 71321d52c141829cd48bdedfe80dd99ec4ff784b
   <Project Path="JobPortalWebsite.csproj" />
 </Solution>

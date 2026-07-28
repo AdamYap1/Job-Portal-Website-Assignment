@@ -12,7 +12,11 @@ namespace Job_Portal_Website.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+<<<<<<< HEAD
             //Prevent a job seeker from applying to the same listing twice (US-13, Scenario 2)
+=======
+            //Duplicate checks
+>>>>>>> 71321d52c141829cd48bdedfe80dd99ec4ff784b
             modelBuilder.Entity<Application>()
                 .HasIndex(a => new { a.jobSeekerId, a.jobListId })
                 .IsUnique();
