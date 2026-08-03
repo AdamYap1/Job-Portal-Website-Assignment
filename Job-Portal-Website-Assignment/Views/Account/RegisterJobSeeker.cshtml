@@ -1,0 +1,51 @@
+@*
+    US-01 — Job Seeker Registration.
+    novalidate is deliberate: the browser's built-in popups would block the form
+    before it reaches the server, so the acceptance tests could never see the
+    application's own validation messages. Server-side validation is the
+    authoritative check anyway, because client-side checks are trivially
+    bypassed.
+*@
+@{
+    ViewData["Title"] = "Register - Job Seeker";
+
+    var form = Context.Request.HasFormContentType ? Context.Request.Form : null;
+    string Val(string key) => form != null ? form[key].ToString() : string.Empty;
+}
+
+<h2>Create a Job Seeker Account</h2>
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<form asp-controller="Account" asp-action="RegisterJobSeeker" method="post" novalidate>
+    <div class="mb-3">
+        <label class="form-label" for="name">Name</label>
+        <input type="text" id="name" name="name" class="form-control" value="@Val("name")" />
+        @Html.ValidationMessage("name", null, new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input type="text" id="email" name="email" class="form-control" value="@Val("email")" />
+        @Html.ValidationMessage("email", null, new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" />
+        <div class="form-text">
+            At least 8 characters, including uppercase, lowercase, number and special character.
+        </div>
+        @Html.ValidationMessage("password", null, new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" />
+        @Html.ValidationMessage("confirmPassword", null, new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+<p class="mt-3">Already have an account? <a asp-controller="Account" asp-action="Login">Login here</a></p>

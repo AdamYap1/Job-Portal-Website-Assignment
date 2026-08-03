@@ -1,0 +1,29 @@
+@*
+    US-05 acceptance tests 1 and 6 — the dashboard an Employer lands on
+    immediately after a successful login.
+*@
+@{
+    ViewData["Title"] = "Company Dashboard";
+
+    var displayName = ViewBag.DisplayName as string ?? "there";
+    var listingCount = ViewBag.ListingCount is int c ? c : 0;
+}
+
+<h2>Welcome back, @displayName</h2>
+<p class="text-muted">Employer account</p>
+
+<div class="row g-3 mb-4">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@listingCount</h5>
+                <p class="card-text text-muted mb-0">Active job listings</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex gap-2 flex-wrap">
+    <a asp-controller="Listings" asp-action="Create" class="btn btn-primary">Post a Job</a>
+    <a asp-controller="Listings" asp-action="Search" class="btn btn-outline-secondary">Browse Listings</a>
+</div>

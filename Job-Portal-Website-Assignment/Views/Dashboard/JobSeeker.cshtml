@@ -1,0 +1,39 @@
+@*
+    US-05 acceptance tests 1 and 6 — the dashboard a Job Seeker lands on
+    immediately after a successful login.
+*@
+@{
+    ViewData["Title"] = "My Dashboard";
+
+    var displayName = ViewBag.DisplayName as string ?? "there";
+    var hasResume = ViewBag.HasResume is bool r && r;
+    var applicationCount = ViewBag.ApplicationCount is int c ? c : 0;
+}
+
+<h2>Welcome back, @displayName</h2>
+<p class="text-muted">Job Seeker account</p>
+
+@if (!hasResume)
+{
+    <div class="alert alert-warning">
+        You have not uploaded a resume yet. You will need one before you can apply for jobs.
+        <a asp-controller="Profile" asp-action="Edit">Upload it now</a>.
+    </div>
+}
+
+<div class="row g-3 mb-4">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@applicationCount</h5>
+                <p class="card-text text-muted mb-0">Applications submitted</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex gap-2 flex-wrap">
+    <a asp-controller="Listings" asp-action="Search" class="btn btn-primary">Search Jobs</a>
+    <a asp-controller="Applications" asp-action="MyApplications" class="btn btn-outline-secondary">My Applications</a>
+    <a asp-controller="Profile" asp-action="Edit" class="btn btn-outline-secondary">Edit Profile</a>
+</div>
