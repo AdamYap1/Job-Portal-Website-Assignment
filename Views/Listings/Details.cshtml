@@ -1,0 +1,85 @@
+@*
+    US-12 — Job Details page.
+    Shows the full listing plus the company profile, and an Apply button that is
+    visible ONLY to a logged-in Job Seeker.
+*@
+@model JobListing
+@{
+    ViewData["Title"] = Model.jobTitle;
+
+    var canApply = ViewBag.CanApply is bool apply && apply;
+    var returnUrl = ViewBag.ReturnUrl as string ?? Url.Action("Search", "Listings");
+
+    var isAuthenticated = User.Identity != null && User.Identity.IsAuthenticated;
+    var isEmployer = isAuthenticated && User.IsInRole("Employer");
+
+    var companyName = Model.Employer != null ? Model.Employer.companyName : "-";
+    var companyDescription = Model.Employer != null && !string.IsNullOrWhiteSpace(Model.Employer.employerDescription)
+        ? Model.Employer.employerDescription
+        : "This company has not added a description yet.";
+    var companyIndustry = Model.Employer != null ? Model.Employer.employerIndustry : null;
+}
+
+<div class="d-flex justify-content-between align-items-start mb-3">
+    <h2 class="mb-0">@Model.jobTitle</h2>
+
+    @* AC-7: Back button returns to the previous search results. *@
+    <a href="@returnUrl" class="btn btn-outline-secondary">&larr; Back to results</a>
+</div>
+
+<h5 class="text-muted mb-4">@companyName</h5>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Salary</dt>
+            <dd class="col-sm-9">@Model.jobSalary.ToString("N2")</dd>
+
+            <dt class="col-sm-3">Location</dt>
+            <dd class="col-sm-9">@Model.jobLocation</dd>
+
+            <dt class="col-sm-3">Employment Type</dt>
+            <dd class="col-sm-9">@(string.IsNullOrWhiteSpace(Model.employmentType) ? "Not specified" : Model.employmentType)</dd>
+
+            <dt class="col-sm-3">Posted Date</dt>
+            <dd class="col-sm-9">@Model.postedDate.ToString("dd MMM yyyy")</dd>
+        </dl>
+    </div>
+</div>
+
+<h4>Job Description</h4>
+<p style="white-space: pre-line">@Model.jobDesc</p>
+
+<h4>Requirements</h4>
+<p style="white-space: pre-line">@Model.jobRequirements</p>
+
+@* AC-5: company profile information. *@
+<h4>About @companyName</h4>
+@if (!string.IsNullOrWhiteSpace(companyIndustry))
+{
+    <p class="text-muted mb-1"><strong>Industry:</strong> @companyIndustry</p>
+}
+<p style="white-space: pre-line">@companyDescription</p>
+
+<hr />
+
+@* AC-6: role-based Apply button visibility. *@
+@if (canApply)
+{
+    <form asp-controller="Applications" asp-action="Apply" method="post">
+        <input type="hidden" name="jobListingId" value="@Model.jobListId" />
+        <button type="submit" class="btn btn-success">Apply for this job</button>
+    </form>
+}
+else if (isEmployer)
+{
+    <div class="alert alert-info mb-0" role="alert">
+        Employer accounts cannot apply for jobs.
+    </div>
+}
+else
+{
+    <div class="alert alert-info mb-0" role="alert">
+        Please <a asp-controller="Account" asp-action="Login">log in as a job seeker</a> to apply for this job.
+    </div>
+}

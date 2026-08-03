@@ -1,0 +1,83 @@
+@*
+    US-18 — Job Search page.
+    Displays Job Title, Company, Salary, Location and Posted Date for every
+    matching Active job. Each row links through to the Job Details page (US-12).
+*@
+@model List<JobListing>
+@{
+    ViewData["Title"] = "Search Jobs";
+
+    var keyword = ViewBag.Keyword as string ?? string.Empty;
+
+    // Passed to the Details page so its Back button returns to *these* results.
+    var currentUrl = $"{Context.Request.Path}{Context.Request.QueryString}";
+
+    var resultSummary = string.IsNullOrWhiteSpace(keyword)
+        ? $"{Model.Count} job(s) found."
+        : $"{Model.Count} job(s) found for '{keyword.Trim()}'.";
+}
+
+<h2 class="mb-3">Search Jobs</h2>
+
+<form asp-controller="Listings" asp-action="Search" method="get" class="row g-2 align-items-center mb-4">
+    <div class="col-sm-6">
+        <label for="keyword" class="visually-hidden">Keyword</label>
+        <input type="text"
+               id="keyword"
+               name="keyword"
+               value="@keyword"
+               class="form-control"
+               placeholder="Search by job title or company name" />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+    @if (!string.IsNullOrWhiteSpace(keyword))
+    {
+        <div class="col-auto">
+            <a asp-controller="Listings" asp-action="Search" class="btn btn-outline-secondary">Clear</a>
+        </div>
+    }
+</form>
+
+@if (Model.Count == 0)
+{
+    @* AC-2: no matching jobs, and AC-6 when the keyword was only special characters. *@
+    <div class="alert alert-warning" role="alert">
+        No matching jobs found.
+    </div>
+}
+else
+{
+    <p class="text-muted">@resultSummary</p>
+
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th scope="col">Job Title</th>
+                <th scope="col">Company</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Location</th>
+                <th scope="col">Posted Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var job in Model)
+            {
+                <tr>
+                    <td>
+                        @* AC-8: open the Job Details page for this listing. *@
+                        <a asp-controller="Listings"
+                           asp-action="Details"
+                           asp-route-id="@job.jobListId"
+                           asp-route-returnUrl="@currentUrl">@job.jobTitle</a>
+                    </td>
+                    <td>@(job.Employer?.companyName ?? "-")</td>
+                    <td>@job.jobSalary.ToString("N2")</td>
+                    <td>@job.jobLocation</td>
+                    <td>@job.postedDate.ToString("dd MMM yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
