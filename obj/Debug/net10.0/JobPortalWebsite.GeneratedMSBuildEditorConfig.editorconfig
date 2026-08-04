@@ -20,45 +20,69 @@ build_property.TargetFrameworkVersion = v10.0
 build_property.EntryPointFilePath = 
 build_property.RootNamespace = Job_Portal_Website
 build_property.RootNamespace = Job_Portal_Website
-build_property.ProjectDir = C:\Users\User\source\repos\Job-Portal-Website-Assignment\
+build_property.ProjectDir = C:\Users\jingx\source\repos\Job-Portal-Website-Assignment-2\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 10.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\User\source\repos\Job-Portal-Website-Assignment
+build_property.MSBuildProjectDirectory = C:\Users\jingx\source\repos\Job-Portal-Website-Assignment-2
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/User/source/repos/Job-Portal-Website-Assignment/Views/Account/Login.cshtml]
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/source/repos/Job-Portal-Website-Assignment/Views/Home/Index.cshtml]
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/Account/RegisterEmployer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RlckVtcGxveWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/Account/RegisterJobSeeker.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RlckpvYlNlZWtlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/source/repos/Job-Portal-Website-Assignment/Views/Home/Privacy.cshtml]
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/source/repos/Job-Portal-Website-Assignment/Views/Shared/Error.cshtml]
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/Listings/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlzdGluZ3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/Listings/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlzdGluZ3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/Listings/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlzdGluZ3NcU2VhcmNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/Listings/Unavailable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlzdGluZ3NcVW5hdmFpbGFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/source/repos/Job-Portal-Website-Assignment/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/source/repos/Job-Portal-Website-Assignment/Views/_ViewImports.cshtml]
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/source/repos/Job-Portal-Website-Assignment/Views/_ViewStart.cshtml]
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/source/repos/Job-Portal-Website-Assignment/Views/Shared/_Layout.cshtml]
+[C:/Users/jingx/source/repos/Job-Portal-Website-Assignment-2/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-h21mmmcbnl
