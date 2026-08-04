@@ -9,7 +9,6 @@ namespace Job_Portal_Website.Controllers
     public class ApplicationsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
         public ApplicationsController(ApplicationDbContext context)
         {
             _context = context;
