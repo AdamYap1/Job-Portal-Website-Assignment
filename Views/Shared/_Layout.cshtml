@@ -16,6 +16,7 @@
     <header>
         <nav>
             <a asp-controller="Home" asp-action="Index">Job Portal</a>
+            <a asp-controller="Listings" asp-action="Search">Search Jobs</a>
             @if (isAuthenticated)
             {
                     @if (User.IsInRole("Employer"))

@@ -1,0 +1,19 @@
+@*
+    US-12 — shown when a listing cannot be viewed.
+    ViewBag.Message is either:
+      "Job listing not found."                     (AC-2, JobID does not exist)
+      "This job listing is no longer available."   (AC-3 Closed / AC-4 Deleted)
+*@
+@{
+    ViewData["Title"] = "Job Listing";
+
+    var message = ViewBag.Message as string ?? "Job listing not found.";
+    var returnUrl = ViewBag.ReturnUrl as string ?? Url.Action("Search", "Listings");
+}
+
+<div class="alert alert-danger" role="alert">
+    @message
+</div>
+
+@* AC-7: Back button still returns to the previous search results. *@
+<a href="@returnUrl" class="btn btn-outline-secondary">&larr; Back to results</a>
