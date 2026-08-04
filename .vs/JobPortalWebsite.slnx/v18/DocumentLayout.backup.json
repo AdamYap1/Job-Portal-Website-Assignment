@@ -1,6 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\",
+<<<<<<< HEAD
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|c:\\users\\jingx\\source\\repos\\job-portal-website-assignment-2\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,10 +16,14 @@
       "RelativeMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|solutionrelative:models\\jobseeker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
+=======
+  "Documents": [],
+>>>>>>> JPWA-14-US08-As-an-employer-I-want-to-be-able-to-post-job-listings-with-descriptions-and-requirements-so-that-job-seekers-can-find-and-apply-for-the-job
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
+<<<<<<< HEAD
       "DocumentGroups": [
         {
           "DockedWidth": 200,
@@ -68,6 +73,9 @@
           ]
         }
       ]
+=======
+      "DocumentGroups": []
+>>>>>>> JPWA-14-US08-As-an-employer-I-want-to-be-able-to-post-job-listings-with-descriptions-and-requirements-so-that-job-seekers-can-find-and-apply-for-the-job
     }
   ]
 }
