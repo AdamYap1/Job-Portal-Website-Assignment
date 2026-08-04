@@ -11,7 +11,7 @@ namespace Job_Portal_Website.Models
         public string jobDesc { get; set; }
         public string jobRequirements { get; set; }
         
-        [Precision(5, 2)]
+        [Precision(18, 2)]
         public decimal jobSalary { get; set; }
         public string jobLocation { get; set; }
         public bool isClosed { get; set; } = false;

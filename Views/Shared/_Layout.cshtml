@@ -18,7 +18,11 @@
             <a asp-controller="Home" asp-action="Index">Job Portal</a>
             @if (isAuthenticated)
             {
-                <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline">
+                    @if (User.IsInRole("Employer"))
+                    {
+                <a asp-controller="Listings" asp-action="Create">Job Listings</a>
+                    }
+                    <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline">
                     <button type="submit">Logout</button>
                 </form>
             }
