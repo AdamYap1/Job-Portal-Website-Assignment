@@ -16,7 +16,7 @@ namespace Job_Portal_Website.Models
         public string jobLocation { get; set; }
 
         // US-12: Employment Type must be shown on the Job Details page.
-        public string employmentType { get; set; } = "Full-Time";
+        public string employmentType { get; set; }
 
         // US-12: a listing can be Closed (employer stopped hiring) or Deleted
         // (soft delete). Both must show "This job listing is no longer

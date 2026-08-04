@@ -35,7 +35,17 @@
     </div>
     <div>
         <label>Location</label>
-        <input type="text" name="jobLocation" />
+        <input type="text" name="jobLocation" required/>
+    </div>
+    <div>
+        <label>Employment Type</label>
+        <select name="employmentType" required>
+            <option value="">-- Select --</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Contract">Contract</option>
+            <option value="Internship">Internship</option>
+        </select>
     </div>
     <button type="submit">Post Listing</button>
 </form>
