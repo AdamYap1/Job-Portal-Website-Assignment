@@ -30,9 +30,17 @@ namespace Job_Portal_Website.Controllers
         {
             if (string.IsNullOrWhiteSpace(listing.jobTitle) ||
                 string.IsNullOrWhiteSpace(listing.jobDesc) ||
-                string.IsNullOrWhiteSpace(listing.jobRequirements))
+                string.IsNullOrWhiteSpace(listing.jobRequirements) ||
+                string.IsNullOrWhiteSpace(listing.jobLocation) || 
+                string.IsNullOrWhiteSpace(listing.employmentType))
             {
-                ModelState.AddModelError("", "Title, description, and requirements are required.");
+                ModelState.AddModelError("", "Fill in all required fields.");
+                return View(listing);
+            }
+
+            if (listing.jobSalary <= 0)
+            {
+                ModelState.AddModelError("", "Salary must be a positive value");
                 return View(listing);
             }
 
