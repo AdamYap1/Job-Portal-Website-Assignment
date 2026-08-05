@@ -28,7 +28,7 @@ jobs:
           dotnet-version: '10.0.x'
           
       - name: Restore dependencies
-        run: dotnet restore Job_Portal_Website.csproj
+        run: dotnet restore JobPortalWebsite.csproj
 
       - name: Build
-        run: dotnet build Job_Portal_Website.csproj --no-restore --configuration Release
+        run: dotnet build JobPortalWebsite.csproj --no-restore --configuration Release
