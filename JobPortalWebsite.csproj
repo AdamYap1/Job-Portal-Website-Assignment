@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -6,6 +6,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Job_Portal_Website</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\JobApplications\**" />
+    <Compile Remove="Views\JobListings\**" />
+    <Content Remove="Views\JobApplications\**" />
+    <Content Remove="Views\JobListings\**" />
+    <EmbeddedResource Remove="Views\JobApplications\**" />
+    <EmbeddedResource Remove="Views\JobListings\**" />
+    <None Remove="Views\JobApplications\**" />
+    <None Remove="Views\JobListings\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.10" />
@@ -21,14 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\JobListings\" />
-    <Folder Include="Views\JobApplications\" />
-    <Folder Include="Views\Profile\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\..\..\Downloads\RegisterEmployer.cshtml" Link="Views\Account\RegisterEmployer.cshtml" />
     <None Include="..\..\..\Downloads\RegisterJobSeeker.cshtml" Link="Views\Account\RegisterJobSeeker.cshtml" />
+    <None Include="JobPortalWebsite.slnx" />
   </ItemGroup>
 
 </Project>

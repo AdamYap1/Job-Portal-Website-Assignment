@@ -91,8 +91,19 @@ namespace Job_Portal_Website.Controllers
             // AC-6: the Apply button is shown ONLY to a logged-in Job Seeker.
             // Employers and guests do not see it.
             ViewBag.CanApply = User.Identity != null
-                               && User.Identity.IsAuthenticated
-                               && User.IsInRole("JobSeeker");
+                   && User.Identity.IsAuthenticated
+                   && User.IsInRole("JobSeeker");
+
+            // NEW: check if this job seeker already applied
+            if (ViewBag.CanApply == true)
+            {
+                var currentUserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                var existingApplication = _context.Application
+                    .FirstOrDefault(a => a.jobSeekerId == currentUserId && a.jobListId == id);
+
+                ViewBag.MyApplyId = existingApplication?.applyId;
+                ViewBag.MyApplyStatus = existingApplication?.applyStatus;
+            }
 
             // AC-1
             return View(listing);
