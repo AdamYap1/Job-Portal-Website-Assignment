@@ -1,0 +1,51 @@
+@model Job_Portal_Website.Models.JobListing
+
+@{
+    ViewData["Title"] = "Post a Job Listing";
+}
+
+<h2>Post a Job Listing</h2>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div style="color:red">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
+<form asp-controller="Listings" asp-action="Create" method="post">
+    <div>
+        <label>Job Title</label>
+        <input type="text" name="jobTitle" required />
+    </div>
+    <div>
+        <label>Description</label>
+        <textarea name="jobDesc" required></textarea>
+    </div>
+    <div>
+        <label>Requirements</label>
+        <textarea name="jobRequirements" required></textarea>
+    </div>
+    <div>
+        <label>Salary</label>
+        <input type="number" name="jobSalary" step="0.01" min="0" required />
+    </div>
+    <div>
+        <label>Location</label>
+        <input type="text" name="jobLocation" required/>
+    </div>
+    <div>
+        <label>Employment Type</label>
+        <select name="employmentType" required>
+            <option value="">-- Select --</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Contract">Contract</option>
+            <option value="Internship">Internship</option>
+        </select>
+    </div>
+    <button type="submit">Post Listing</button>
+</form>
