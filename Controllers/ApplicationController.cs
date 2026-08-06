@@ -19,40 +19,78 @@ namespace Job_Portal_Website.Controllers
         // ---------- US-13: Apply with Saved Resume ----------
 
         [HttpPost]
-        public IActionResult Apply(int jobListingId)
+        public IActionResult Apply(int jobListId)
         {
             var jobSeeker = _context.JobSeeker.Find(CurrentUserId);
-            var listing = _context.JobListing.Find(jobListingId);
+            var listing = _context.JobListing.Find(jobListId);
 
-            if (listing == null || listing.isClosed)
+            if (listing == null || listing.isClosed || listing.isDeleted)
             {
-                return BadRequest("This job listing is no longer available.");
+                TempData["ApplyError"] = "This job listing is no longer available.";
+                return RedirectToAction("Details", "Listings", new { id = jobListId });
+            }
+
+            if (jobSeeker == null)
+            {
+                return BadRequest("User not found.");
             }
 
             if (string.IsNullOrEmpty(jobSeeker.resumePath))
             {
-                return BadRequest("Please upload a resume to your profile before applying.");
+                TempData["ApplyError"] = "Please upload a resume to your profile before applying.";
+                TempData["ShowResumeLink"] = true;
+                return RedirectToAction("Details", "Listings", new { id = jobListId });
             }
 
             bool alreadyApplied = _context.Application
-                .Any(a => a.jobSeekerId == CurrentUserId && a.jobListId == jobListingId);
+                .Any(a => a.jobSeekerId == CurrentUserId && a.jobListId == jobListId);
 
             if (alreadyApplied)
             {
-                return BadRequest("You have already applied to this job listing.");
+                TempData["ApplyError"] = "You have already applied to this job listing.";
+                return RedirectToAction("Details", "Listings", new { id = jobListId });
             }
 
             var application = new Application
             {
                 jobSeekerId = CurrentUserId,
-                jobListId = jobListingId,
+                jobListId = jobListId,
                 applyStatus = ApplicationStatus.Submitted
             };
 
             _context.Application.Add(application);
             _context.SaveChanges();
 
-            return RedirectToAction("MyApplications");
+            TempData["ApplySuccess"] = "Your application has been submitted successfully.";
+            // Stay on the Details page instead of redirecting to MyApplications
+            return RedirectToAction("Details", "Listings", new { id = jobListId });
+        }
+
+        // ---------- Cancel Application ----------
+
+        [HttpPost]
+        public IActionResult Cancel(int applyId, string returnTo = "details")
+        {
+            var application = _context.Application.Find(applyId);
+
+            if (application == null || application.jobSeekerId != CurrentUserId)
+            {
+                return NotFound();
+            }
+
+            int jobListId = application.jobListId;
+
+            _context.Application.Remove(application);
+            _context.SaveChanges();
+
+            if (returnTo == "myapplications")
+            {
+                TempData["ApplySuccess"] = "Application withdrawn.";
+                return RedirectToAction("MyApplications");
+            }
+
+            TempData["ApplySuccess"] = "Application withdrawn.";
+            return RedirectToAction("Details", "Listings", new { id = jobListId });
         }
 
         [HttpGet]
