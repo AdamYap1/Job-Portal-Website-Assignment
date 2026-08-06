@@ -1,73 +1,84 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\Job-Portal-Website-Assignment\\",
+  "WorkspaceRootPath": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|c:\\users\\user\\source\\repos\\job-portal-website-assignment\\controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\10.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|c:\\users\\jingx\\source\\repos\\job-portal-website-assignment-2\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|solutionrelative:controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|c:\\users\\jingx\\source\\repos\\job-portal-website-assignment-2\\controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|solutionrelative:controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|c:\\users\\user\\source\\repos\\job-portal-website-assignment\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|solutionrelative:controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|c:\\users\\jingx\\source\\repos\\job-portal-website-assignment-2\\models\\jobseeker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|solutionrelative:models\\jobseeker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 1,
+      "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 412,
-          "SelectedChildIndex": 6,
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ApplicationController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Job-Portal-Website-Assignment\\Controllers\\ApplicationController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ApplicationController.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Job-Portal-Website-Assignment\\Controllers\\ApplicationController.cs",
-              "RelativeToolTip": "Controllers\\ApplicationController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwBsAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-25T14:51:55.616Z",
+              "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\10.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\10.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\10.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\10.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "ViewState": "AgIAAL4CAAAAAAAAAAAowMECAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-08-04T16:24:32.928Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "ProfileController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Job-Portal-Website-Assignment\\Controllers\\ProfileController.cs",
+              "DocumentMoniker": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Controllers\\ProfileController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProfileController.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Job-Portal-Website-Assignment\\Controllers\\ProfileController.cs",
+              "ToolTip": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Controllers\\ProfileController.cs",
               "RelativeToolTip": "Controllers\\ProfileController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAowBIAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-25T14:51:48.3Z"
+              "WhenOpened": "2026-08-04T11:23:29.743Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ApplicationController.cs",
+              "DocumentMoniker": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Controllers\\ApplicationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ApplicationController.cs",
+              "ToolTip": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Controllers\\ApplicationController.cs",
+              "RelativeToolTip": "Controllers\\ApplicationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T11:19:05.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "JobSeeker.cs",
+              "DocumentMoniker": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Models\\JobSeeker.cs",
+              "RelativeDocumentMoniker": "Models\\JobSeeker.cs",
+              "ToolTip": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Models\\JobSeeker.cs",
+              "RelativeToolTip": "Models\\JobSeeker.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwAoAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T09:07:22.867Z"
             }
           ]
         }
