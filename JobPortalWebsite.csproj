@@ -23,7 +23,6 @@
   <ItemGroup>
     <Folder Include="Views\JobListings\" />
     <Folder Include="Views\JobApplications\" />
-    <Folder Include="Views\Profile\" />
   </ItemGroup>
 
   <ItemGroup>
