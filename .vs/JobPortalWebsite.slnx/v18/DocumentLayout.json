@@ -33,6 +33,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 5,
           "Children": [
             {
@@ -112,6 +113,86 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-04T09:07:22.867Z",
               "EditorCaption": ""
+=======
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Employer.cs",
+              "DocumentMoniker": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Models\\Employer.cs",
+              "RelativeDocumentMoniker": "Models\\Employer.cs",
+              "ToolTip": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Models\\Employer.cs",
+              "RelativeToolTip": "Models\\Employer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T02:48:47.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\10.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\10.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\10.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\10.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "ViewState": "AgIAAL4CAAAAAAAAAAAowMECAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-08-04T16:24:32.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProfileController.cs",
+              "DocumentMoniker": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Controllers\\ProfileController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProfileController.cs",
+              "ToolTip": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Controllers\\ProfileController.cs",
+              "RelativeToolTip": "Controllers\\ProfileController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T11:23:29.743Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ApplicationController.cs",
+              "DocumentMoniker": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Controllers\\ApplicationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ApplicationController.cs",
+              "ToolTip": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Controllers\\ApplicationController.cs",
+              "RelativeToolTip": "Controllers\\ApplicationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T11:19:05.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JobSeeker.cs",
+              "DocumentMoniker": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Models\\JobSeeker.cs",
+              "RelativeDocumentMoniker": "Models\\JobSeeker.cs",
+              "ToolTip": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Models\\JobSeeker.cs",
+              "RelativeToolTip": "Models\\JobSeeker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T09:07:22.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\jingx\\source\\repos\\Job-Portal-Website-Assignment-2\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-06T02:58:48.809Z"
+>>>>>>> develop
             }
           ]
         }

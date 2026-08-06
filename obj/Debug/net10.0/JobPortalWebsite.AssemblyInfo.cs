@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JobPortalWebsite")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b776a0c8707fb767d0795359815a73354222e95")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7a1a6e39fc48d50e73f0663f86b29b534b9663a")]
+>>>>>>> develop
 [assembly: System.Reflection.AssemblyProductAttribute("JobPortalWebsite")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JobPortalWebsite")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
