@@ -9,10 +9,8 @@ namespace Job_Portal_Website.Models
         public string seekerName { get; set; }
         public string seekerEmail { get; set; }
         public string seekerPassword { get; set; }
-        public string PhoneNumber { get; set; }
-        public string?seekerSkills { get; set; }
-        public string? seekerExp {  get; set; }
-        public string Education { get; set; }
+        public string? seekerSkills { get; set; }
+        public string? seekerExp { get; set; }
         public string? resumePath { get; set; }
         public ICollection<Application> Applications { get; set; } = new List<Application>();
 
