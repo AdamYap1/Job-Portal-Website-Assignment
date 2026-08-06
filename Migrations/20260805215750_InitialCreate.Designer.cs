@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Job_Portal_Website.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260722170539_InitialCreate")]
+    [Migration("20260805215750_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -33,9 +33,6 @@ namespace Job_Portal_Website.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("applyId"));
 
-                    b.Property<int>("JobListingjobListId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("appliedDate")
                         .HasColumnType("datetime2");
 
@@ -50,7 +47,7 @@ namespace Job_Portal_Website.Migrations
 
                     b.HasKey("applyId");
 
-                    b.HasIndex("JobListingjobListId");
+                    b.HasIndex("jobListId");
 
                     b.HasIndex("jobSeekerId", "jobListId")
                         .IsUnique();
@@ -71,15 +68,13 @@ namespace Job_Portal_Website.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("employerDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("employerEmail")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("employerIndustry")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("employerPassword")
@@ -87,10 +82,12 @@ namespace Job_Portal_Website.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("logoPath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("employerId");
+
+                    b.HasIndex("employerEmail")
+                        .IsUnique();
 
                     b.ToTable("Employer");
                 });
@@ -106,7 +103,14 @@ namespace Job_Portal_Website.Migrations
                     b.Property<int>("employerId")
                         .HasColumnType("int");
 
+                    b.Property<string>("employmentType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("isClosed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("jobDesc")
@@ -122,6 +126,7 @@ namespace Job_Portal_Website.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("jobSalary")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("jobTitle")
@@ -147,15 +152,13 @@ namespace Job_Portal_Website.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("jobSeekerId"));
 
                     b.Property<string>("resumePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("seekerEmail")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("seekerExp")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("seekerName")
@@ -167,10 +170,12 @@ namespace Job_Portal_Website.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("seekerSkills")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("jobSeekerId");
+
+                    b.HasIndex("seekerEmail")
+                        .IsUnique();
 
                     b.ToTable("JobSeeker");
                 });
@@ -179,7 +184,7 @@ namespace Job_Portal_Website.Migrations
                 {
                     b.HasOne("Job_Portal_Website.Models.JobListing", "JobListing")
                         .WithMany("Applications")
-                        .HasForeignKey("JobListingjobListId")
+                        .HasForeignKey("jobListId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
