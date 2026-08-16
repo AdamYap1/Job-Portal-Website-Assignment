@@ -97,9 +97,19 @@ namespace Job_Portal_Website.Controllers
         [HttpGet]
         public IActionResult MyApplications()
         {
+            var jobSeeker = _context.JobSeeker.Find(CurrentUserId);
+            ViewBag.ResumePath = jobSeeker?.resumePath;
             var applications = _context.Application
                 .Where(a => a.jobSeekerId == CurrentUserId)
-                .Select(a => new { a.applyId, a.JobListing.jobTitle, a.applyStatus, a.appliedDate })
+                .Select(a => new
+                {
+                    a.applyId,
+                    a.jobListId,
+                    a.JobListing.jobTitle,
+                    a.applyStatus,
+                    a.appliedDate
+                })
+                .OrderByDescending(a => a.appliedDate)
                 .ToList();
 
             return View(applications);

@@ -82,7 +82,7 @@ namespace Job_Portal_Website.Controllers
             }
 
             // AC-3 and AC-4: the listing exists but is Closed or soft-Deleted.
-            if (listing.isClosed || listing.isDeleted)
+            if (listing == null || listing.isClosed || listing.isDeleted)
             {
                 ViewBag.Message = "This job listing is no longer available.";
                 return View("Unavailable");

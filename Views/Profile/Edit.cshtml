@@ -16,7 +16,17 @@
     </div>
 }
 
-<p>Current resume: @(string.IsNullOrEmpty(Model.resumePath) ? "None uploaded" : Model.resumePath)</p>
+@if (string.IsNullOrEmpty(Model.resumePath))
+{
+    <p>Current resume: <em>None uploaded</em></p>
+}
+else
+{
+    <p>
+        Current resume:
+        <a href="@Model.resumePath" target="_blank">View Resume</a>
+    </p>
+}
 
 <form asp-controller="Profile" asp-action="Edit" method="post" enctype="multipart/form-data">
     <div>
