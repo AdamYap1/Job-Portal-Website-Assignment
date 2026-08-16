@@ -14,6 +14,16 @@ namespace Job_Portal_Website.Models
         {
             //Prevent a job seeker from applying to the same listing twice (US-13, Scenario 2)
             modelBuilder.Entity<Application>()
+                .HasOne(a => a.JobListing)
+                .WithMany(l => l.Applications)
+                .HasForeignKey(a => a.jobListId);
+
+            modelBuilder.Entity<Application>()
+                .HasOne(a => a.JobSeeker)
+                .WithMany(js => js.Applications)
+                .HasForeignKey(a => a.jobSeekerId);
+
+            modelBuilder.Entity<Application>()
                 .HasIndex(a => new { a.jobSeekerId, a.jobListId })
                 .IsUnique();
 

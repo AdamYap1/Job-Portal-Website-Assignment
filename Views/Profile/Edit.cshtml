@@ -1,0 +1,49 @@
+﻿@model Job_Portal_Website.Models.JobSeeker
+
+@{
+    ViewData["Title"] = "Edit Profile (Temp - for US-13 testing)";
+}
+
+<h2>Edit Profile <em>(temporary testing page)</em></h2>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div style="color:red">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
+@if (string.IsNullOrEmpty(Model.resumePath))
+{
+    <p>Current resume: <em>None uploaded</em></p>
+}
+else
+{
+    <p>
+        Current resume:
+        <a href="@Model.resumePath" target="_blank">View Resume</a>
+    </p>
+}
+
+<form asp-controller="Profile" asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" value="@Model.seekerName" />
+    </div>
+    <div>
+        <label>Skills</label>
+        <input type="text" name="skills" value="@Model.seekerSkills" />
+    </div>
+    <div>
+        <label>Experience</label>
+        <input type="text" name="experience" value="@Model.seekerExp" />
+    </div>
+    <div>
+        <label>Resume (PDF/DOCX)</label>
+        <input type="file" name="resume" accept=".pdf,.docx" />
+    </div>
+    <button type="submit">Save</button>
+</form>

@@ -30,9 +30,6 @@ namespace Job_Portal_Website.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("applyId"));
 
-                    b.Property<int>("JobListingjobListId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("appliedDate")
                         .HasColumnType("datetime2");
 
@@ -47,7 +44,7 @@ namespace Job_Portal_Website.Migrations
 
                     b.HasKey("applyId");
 
-                    b.HasIndex("JobListingjobListId");
+                    b.HasIndex("jobListId");
 
                     b.HasIndex("jobSeekerId", "jobListId")
                         .IsUnique();
@@ -184,7 +181,7 @@ namespace Job_Portal_Website.Migrations
                 {
                     b.HasOne("Job_Portal_Website.Models.JobListing", "JobListing")
                         .WithMany("Applications")
-                        .HasForeignKey("JobListingjobListId")
+                        .HasForeignKey("jobListId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

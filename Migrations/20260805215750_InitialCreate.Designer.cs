@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Job_Portal_Website.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260804095509_AddEmploymentTypeAndDeleted")]
-    partial class AddEmploymentTypeAndDeleted
+    [Migration("20260805215750_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,9 +33,6 @@ namespace Job_Portal_Website.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("applyId"));
 
-                    b.Property<int>("JobListingjobListId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("appliedDate")
                         .HasColumnType("datetime2");
 
@@ -50,7 +47,7 @@ namespace Job_Portal_Website.Migrations
 
                     b.HasKey("applyId");
 
-                    b.HasIndex("JobListingjobListId");
+                    b.HasIndex("jobListId");
 
                     b.HasIndex("jobSeekerId", "jobListId")
                         .IsUnique();
@@ -187,7 +184,7 @@ namespace Job_Portal_Website.Migrations
                 {
                     b.HasOne("Job_Portal_Website.Models.JobListing", "JobListing")
                         .WithMany("Applications")
-                        .HasForeignKey("JobListingjobListId")
+                        .HasForeignKey("jobListId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "My Applications";
+}
+
+<h2>My Applications</h2>
+
+@if (!string.IsNullOrEmpty((string?)ViewBag.ResumePath))
+{
+    <p>
+        Your resume on file:
+        <a href="@ViewBag.ResumePath" target="_blank">View Resume</a>
+    </p>
+}
+else
+{
+    <p>
+        No resume on file.
+        <a asp-controller="Profile" asp-action="Edit">Upload one here</a>
+    </p>
+}
+
+@if (TempData["ApplySuccess"] != null)
+{
+    <div style="color:green">
+        <p>@TempData["ApplySuccess"]</p>
+    </div>
+}
+
+@if (!Model.Any())
+{
+    <p>You haven't applied to any jobs yet.</p>
+}
+else
+{
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>Job Title</th>
+                <th>Status</th>
+                <th>Applied Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var app in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Listings" asp-action="Details" asp-route-id="@app.jobListId">
+                            @app.jobTitle
+                        </a>
+                    </td>
+                    <td>@app.applyStatus</td>
+                    <td>@app.appliedDate.ToString("dd MMM yyyy")</td>
+                    <td>
+                        @if (app.applyStatus.ToString() == "Submitted" || app.applyStatus.ToString() == "Viewed")
+                        {
+                            <form asp-controller="Applications" asp-action="Cancel" method="post" style="display:inline">
+                                <input type="hidden" name="applyId" value="@app.applyId" />
+                                <input type="hidden" name="returnTo" value="myapplications" />
+                                <button type="submit" onclick="return confirm('Withdraw this application?');">
+                                    Cancel Application
+                                </button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<p><a asp-controller="Listings" asp-action="Search">Browse more jobs</a></p>
