@@ -30,9 +30,6 @@ namespace Job_Portal_Website.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("applyId"));
 
-                    b.Property<int>("JobListingjobListId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("appliedDate")
                         .HasColumnType("datetime2");
 
@@ -47,7 +44,7 @@ namespace Job_Portal_Website.Migrations
 
                     b.HasKey("applyId");
 
-                    b.HasIndex("JobListingjobListId");
+                    b.HasIndex("jobListId");
 
                     b.HasIndex("jobSeekerId", "jobListId")
                         .IsUnique();
@@ -103,7 +100,14 @@ namespace Job_Portal_Website.Migrations
                     b.Property<int>("employerId")
                         .HasColumnType("int");
 
+                    b.Property<string>("employmentType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("isClosed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("jobDesc")
@@ -119,8 +123,8 @@ namespace Job_Portal_Website.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("jobSalary")
-                        .HasPrecision(5, 2)
-                        .HasColumnType("decimal(5,2)");
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("jobTitle")
                         .IsRequired()
@@ -177,7 +181,7 @@ namespace Job_Portal_Website.Migrations
                 {
                     b.HasOne("Job_Portal_Website.Models.JobListing", "JobListing")
                         .WithMany("Applications")
-                        .HasForeignKey("JobListingjobListId")
+                        .HasForeignKey("jobListId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

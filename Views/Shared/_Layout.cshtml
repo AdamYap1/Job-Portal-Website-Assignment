@@ -16,9 +16,20 @@
     <header>
         <nav>
             <a asp-controller="Home" asp-action="Index">Job Portal</a>
+            <a asp-controller="Listings" asp-action="Search">Search Jobs</a>
             @if (isAuthenticated)
             {
-                <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline">
+                    @if (User.IsInRole("Employer"))
+                    {
+                        <a asp-controller="Listings" asp-action="Create">Job Listing</a>
+                    } 
+                    @if (User.IsInRole("JobSeeker"))
+                    {
+                    <a asp-controller="Profile" asp-action="Edit">Profile</a>
+                        <a asp-controller="Applications" asp-action="MyApplications">My Applications</a>
+                    }
+
+                    <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline">
                     <button type="submit">Logout</button>
                 </form>
             }
