@@ -22,7 +22,10 @@
                     @if (User.IsInRole("Employer"))
                     {
                         <a asp-controller="Listings" asp-action="Create">Job Listing</a>
+                    <a asp-controller="Listings" asp-action="MyListings">My Listings</a>
+
                     } 
+
                     @if (User.IsInRole("JobSeeker"))
                     {
                     <a asp-controller="Profile" asp-action="Edit">Profile</a>

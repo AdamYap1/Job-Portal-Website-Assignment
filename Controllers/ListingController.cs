@@ -51,6 +51,27 @@ namespace Job_Portal_Website.Controllers
             return RedirectToAction("Details", new { id = listing.jobListId });
         }
 
+        // ---------- US-10: View all posted job listings (Employer only) ----------
+        [Authorize(Roles = "Employer")]
+        [HttpGet]
+        public IActionResult MyListings()
+        {
+            var listings = _context.JobListing
+                .Where(l => l.employerId == CurrentUserId && !l.isDeleted)
+                .Select(l => new
+                {
+                    l.jobListId,
+                    l.jobTitle,
+                    l.isClosed,
+                    l.postedDate,
+                    applicantCount = l.Applications.Count()
+                })
+                .OrderByDescending(l => l.postedDate)
+                .ToList();
+
+            return View(listings);
+        }
+
         // ================================================================
         // US-12: View the full details of a job listing
         // ================================================================
