@@ -3091,23 +3091,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\Job-Portal-Website-Assignment\\JobPortalWebsite.csproj",
+      "projectUniqueName": "C:\\jobPortal\\JobPortalWebsite.csproj",
       "projectName": "JobPortalWebsite",
-      "projectPath": "C:\\Users\\User\\source\\repos\\Job-Portal-Website-Assignment\\JobPortalWebsite.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\Job-Portal-Website-Assignment\\obj\\",
+      "projectPath": "C:\\jobPortal\\JobPortalWebsite.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "C:\\jobPortal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

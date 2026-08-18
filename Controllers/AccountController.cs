@@ -141,5 +141,10 @@ namespace Job_Portal_Website.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login");
         }
+
+        //US-14: Access Denied
+
+        [HttpGet]
+        public IActionResult AccessDenied() => View();
     }
 }
