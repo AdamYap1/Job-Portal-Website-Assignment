@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Job_Portal_Website.Models.JobListing>
+
+@{
+    ViewData["Title"] = "My Job Listings";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">My Job Listings</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            You haven't posted any jobs yet.
+            <a asp-controller="Listings" asp-action="Create">Post one now</a>.
+        </div>
+    }
+    else
+    {
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Posted Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var job in Model)
+                {
+                    <tr>
+                        <td>
+                            <a asp-controller="Listings" asp-action="Details" asp-route-id="@job.jobListId">
+                                @job.jobTitle
+                            </a>
+                        </td>
+                        <td>@job.postedDate.ToString("dd MMM yyyy")</td>
+                        <td>
+                            @if (job.isDeleted)
+                            {
+                                <span class="badge bg-dark">Deleted</span>
+                            }
+                            else if (job.isClosed)
+                            {
+                                <span class="badge bg-secondary">Closed</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success">Open</span>
+                            }
+                        </td>
+                        <td>
+                            <a asp-controller="EmployerApplications" asp-action="ViewApplicants"
+                               asp-route-jobListId="@job.jobListId" class="btn btn-sm btn-outline-primary">
+                                View Applicants
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

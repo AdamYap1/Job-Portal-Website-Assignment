@@ -1,0 +1,96 @@
+﻿@model Job_Portal_Website.Models.ViewModels.ApplicantListViewModel
+@using Job_Portal_Website.Models
+
+@{
+    ViewData["Title"] = "Applicants";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-1">Applicants for: @Model.jobTitle</h2>
+    <p class="text-muted">@Model.Applicants.Count applicant(s)</p>
+
+    @if (!Model.Applicants.Any())
+    {
+        <div class="alert alert-info">No applications yet for this job.</div>
+    }
+    else
+    {
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Applied On</th>
+                    <th>Resume</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var applicant in Model.Applicants)
+                {
+                    <tr>
+                        <td>
+                            @applicant.seekerName
+                            <div class="text-muted small">@applicant.seekerEmail</div>
+                        </td>
+                        <td>@applicant.appliedDate.ToString("dd MMM yyyy")</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(applicant.resumePath))
+                            {
+                                <a href="@applicant.resumePath" target="_blank">View Resume</a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">None</span>
+                            }
+                        </td>
+                        <td>
+                            @switch (applicant.applyStatus)
+                            {
+                                case ApplicationStatus.Accepted:
+                                    <span class="badge bg-success">Accepted</span>
+                                    break;
+                                case ApplicationStatus.Rejected:
+                                    <span class="badge bg-danger">Rejected</span>
+                                    break;
+                                case ApplicationStatus.Viewed:
+                                    <span class="badge bg-info text-dark">Viewed</span>
+                                    break;
+                                default:
+                                    <span class="badge bg-secondary">Submitted</span>
+                                    break;
+                            }
+                        </td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <form asp-controller="EmployerApplications" asp-action="UpdateStatus" method="post"
+                                      onsubmit="return confirm('Accept this applicant?');">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="applyId" value="@applicant.applyId" />
+                                    <input type="hidden" name="jobListId" value="@Model.jobListId" />
+                                    <input type="hidden" name="newStatus" value="@((int)ApplicationStatus.Accepted)" />
+                                    <button type="submit" class="btn btn-sm btn-success"
+                                            disabled="@(applicant.applyStatus == ApplicationStatus.Accepted)">
+                                        Accept
+                                    </button>
+                                </form>
+
+                                <form asp-controller="EmployerApplications" asp-action="UpdateStatus" method="post"
+                                      onsubmit="return confirm('Reject this applicant?');">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="applyId" value="@applicant.applyId" />
+                                    <input type="hidden" name="jobListId" value="@Model.jobListId" />
+                                    <input type="hidden" name="newStatus" value="@((int)ApplicationStatus.Rejected)" />
+                                    <button type="submit" class="btn btn-sm btn-danger"
+                                            disabled="@(applicant.applyStatus == ApplicationStatus.Rejected)">
+                                        Reject
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

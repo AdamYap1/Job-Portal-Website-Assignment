@@ -24,6 +24,20 @@ namespace Job_Portal_Website.Controllers
         [HttpGet]
         public IActionResult Create() => View();
 
+        // ---------- View own posted listings (Employer only) ----------
+
+        [Authorize(Roles = "Employer")]
+        [HttpGet]
+        public IActionResult MyListings()
+        {
+            var listings = _context.JobListing
+                .Where(l => l.employerId == CurrentUserId)
+                .OrderByDescending(l => l.postedDate)
+                .ToList();
+
+            return View(listings);
+        }
+
         [Authorize(Roles = "Employer")]
         [HttpPost]
         public IActionResult Create(JobListing listing)
