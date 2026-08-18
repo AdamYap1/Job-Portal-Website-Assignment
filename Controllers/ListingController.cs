@@ -71,6 +71,30 @@ namespace Job_Portal_Website.Controllers
 
             return View(listings);
         }
+        // ---------- US-11: Close a job listing (Employer only) ----------
+        [Authorize(Roles = "Employer")]
+        [HttpPost]
+        public IActionResult Close(int id)
+        {
+            var listing = _context.JobListing.Find(id);
+
+            if (listing == null || listing.employerId != CurrentUserId)
+            {
+                return NotFound();
+            }
+
+            if (listing.isClosed)
+            {
+                TempData["ListingMessage"] = "This listing is already closed.";
+                return RedirectToAction("MyListings");
+            }
+
+            listing.isClosed = true;
+            _context.SaveChanges();
+
+            TempData["ListingMessage"] = "Listing closed successfully.";
+            return RedirectToAction("MyListings");
+        }
 
         // ================================================================
         // US-12: View the full details of a job listing

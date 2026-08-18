@@ -47,6 +47,16 @@ else
                         <a asp-controller="Listings" asp-action="Details" asp-route-id="@listing.jobListId">
                             View
                         </a>
+
+                        @if (!listing.isClosed)
+                        {
+                            <form asp-controller="Listings" asp-action="Close" method="post" style="display:inline">
+                                <input type="hidden" name="id" value="@listing.jobListId" />
+                                <button type="submit" onclick="return confirm('Close this job listing? Job seekers will no longer be able to apply.');">
+                                    Close
+                                </button>
+                            </form>
+                        }
                     </td>
                 </tr>
             }
