@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|solutionrelative:controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|c:\\jobportal\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|solutionrelative:models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\.copilot\\plans\\plan-us-14-implementation-plan-my-applications-application-status.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}|MarkdownSecurePreview"
     },
     {
@@ -61,6 +65,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|c:\\jobportal\\us14_acceptancetests.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|solutionrelative:us14_acceptancetests.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|c:\\jobportal\\models\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DD8F60E-C218-E96F-42E0-0C148DF1E761}|JobPortalWebsite.csproj|solutionrelative:models\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,15 +78,11 @@
       "DocumentGroups": [
         {
           "DockedHeight": 371,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -98,55 +102,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\jobPortal\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\jobPortal\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAJIAAAAAAAAAAIBQwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\jobPortal\\Models\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Models\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\jobPortal\\Models\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Models\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAIA4wAoAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T06:36:34.544Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\jobPortal\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\jobPortal\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T06:36:25.35Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MyApplicationsViewModel.cs",
-              "DocumentMoniker": "C:\\jobPortal\\Models\\MyApplicationsViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\MyApplicationsViewModel.cs",
-              "ToolTip": "C:\\jobPortal\\Models\\MyApplicationsViewModel.cs",
-              "RelativeToolTip": "Models\\MyApplicationsViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T06:35:37.822Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "cluade.agent.md",
-              "DocumentMoniker": "C:\\jobPortal\\.github\\agents\\cluade.agent.md",
-              "RelativeDocumentMoniker": ".github\\agents\\cluade.agent.md",
-              "ToolTip": "C:\\jobPortal\\.github\\agents\\cluade.agent.md",
-              "RelativeToolTip": ".github\\agents\\cluade.agent.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-08-18T06:21:44.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-18T07:22:19.056Z"
             },
             {
               "$type": "Document",
@@ -156,14 +120,74 @@
               "RelativeDocumentMoniker": "Controllers\\ApplicationController.cs",
               "ToolTip": "C:\\jobPortal\\Controllers\\ApplicationController.cs",
               "RelativeToolTip": "Controllers\\ApplicationController.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAYwD4AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAkwEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-05T22:17:54.936Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 17,
+              "Title": "Application.cs",
+              "DocumentMoniker": "C:\\jobPortal\\Models\\Application.cs",
+              "RelativeDocumentMoniker": "Models\\Application.cs",
+              "ToolTip": "C:\\jobPortal\\Models\\Application.cs",
+              "RelativeToolTip": "Models\\Application.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T07:22:07.091Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MyApplicationsViewModel.cs",
+              "DocumentMoniker": "C:\\jobPortal\\Models\\MyApplicationsViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\MyApplicationsViewModel.cs",
+              "ToolTip": "C:\\jobPortal\\Models\\MyApplicationsViewModel.cs",
+              "RelativeToolTip": "Models\\MyApplicationsViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T06:35:37.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\jobPortal\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\jobPortal\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T06:36:25.35Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\jobPortal\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\jobPortal\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAJIAAAAAAAAAAIBQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T06:36:34.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "cluade.agent.md",
+              "DocumentMoniker": "C:\\jobPortal\\.github\\agents\\cluade.agent.md",
+              "RelativeDocumentMoniker": ".github\\agents\\cluade.agent.md",
+              "ToolTip": "C:\\jobPortal\\.github\\agents\\cluade.agent.md",
+              "RelativeToolTip": ".github\\agents\\cluade.agent.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-08-18T06:21:44.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "plan-us-14-implementation-plan-my-applications-application-status.md [Preview]",
               "DocumentMoniker": "C:\\Users\\ASUS\\.copilot\\plans\\plan-us-14-implementation-plan-my-applications-application-status.md",
               "RelativeDocumentMoniker": "..\\Users\\ASUS\\.copilot\\plans\\plan-us-14-implementation-plan-my-applications-application-status.md",
@@ -175,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "US14_AcceptanceTests.md",
               "DocumentMoniker": "C:\\jobPortal\\US14_AcceptanceTests.md",
               "RelativeDocumentMoniker": "US14_AcceptanceTests.md",
@@ -183,12 +207,11 @@
               "RelativeToolTip": "US14_AcceptanceTests.md",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAOMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-08-18T06:37:22.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-18T06:37:22.649Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "AccessDenied.cshtml",
               "DocumentMoniker": "C:\\jobPortal\\Views\\Account\\AccessDenied.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\AccessDenied.cshtml",
@@ -196,12 +219,11 @@
               "RelativeToolTip": "Views\\Account\\AccessDenied.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-18T06:36:38.487Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-18T06:36:38.487Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ListingController.cs",
               "DocumentMoniker": "C:\\jobPortal\\Controllers\\ListingController.cs",
               "RelativeDocumentMoniker": "Controllers\\ListingController.cs",
@@ -213,7 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "dbo.JobListing.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JobPortalDb/True/SqlTable/dbo.JobListing.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JobPortalDb/True/SqlTable/dbo.JobListing.sql",
@@ -222,7 +244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\jobPortal\\Views\\Profile\\Edit.cshtml",
               "RelativeDocumentMoniker": "Views\\Profile\\Edit.cshtml",
@@ -234,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MyApplications.cshtml",
               "DocumentMoniker": "C:\\jobPortal\\Views\\Applications\\MyApplications.cshtml",
               "RelativeDocumentMoniker": "Views\\Applications\\MyApplications.cshtml",
@@ -242,12 +264,11 @@
               "RelativeToolTip": "Views\\Applications\\MyApplications.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-06T03:23:24.263Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-06T03:23:24.263Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "dbo.Application.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JobPortalDb/True/SqlTable/dbo.Application.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JobPortalDb/True/SqlTable/dbo.Application.sql",
@@ -256,7 +277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "dbo.JobSeeker.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JobPortalDb/True/SqlTable/dbo.JobSeeker.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JobPortalDb/True/SqlTable/dbo.JobSeeker.sql",
@@ -265,7 +286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Unavailable.cshtml",
               "DocumentMoniker": "C:\\jobPortal\\Views\\Listings\\Unavailable.cshtml",
               "RelativeDocumentMoniker": "Views\\Listings\\Unavailable.cshtml",
@@ -277,7 +298,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\jobPortal\\Views\\Listings\\Details.cshtml",
               "RelativeDocumentMoniker": "Views\\Listings\\Details.cshtml",
