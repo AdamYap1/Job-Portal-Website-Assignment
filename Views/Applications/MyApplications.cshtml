@@ -6,7 +6,7 @@
 
 <h2>My Applications</h2>
 
-@if (!string.IsNullOrEmpty((string?)ViewBag.ResumePath))
+@if (!string.IsNullOrEmpty(ViewBag.ResumePath as string))
 {
     <p>
         Your resume on file:
@@ -38,7 +38,8 @@ else
         <thead>
             <tr>
                 <th>Job Title</th>
-                <th>Status</th>
+                <th>Listing Status</th>
+                <th>Application Status</th>
                 <th>Applied Date</th>
                 <th>Actions</th>
             </tr>
@@ -52,10 +53,32 @@ else
                             @app.jobTitle
                         </a>
                     </td>
-                    <td>@app.applyStatus</td>
+                    <td>
+                        @if (app.isClosed)
+                        {
+                            <span style="color:gray">Closed</span>
+                        }
+                        else
+                        {
+                            <span style="color:green">Open</span>
+                        }
+                    </td>
+                    <td>
+                        @{
+                            var statusText = app.applyStatus.ToString();
+                            var statusColor = statusText switch
+                            {
+                                "Accepted" => "green",
+                                "Rejected" => "red",
+                                "Viewed" => "blue",
+                                _ => "black"
+                            };
+                        }
+                        <span style="color:@statusColor; font-weight:bold">@statusText</span>
+                    </td>
                     <td>@app.appliedDate.ToString("dd MMM yyyy")</td>
                     <td>
-                        @if (app.applyStatus.ToString() == "Submitted" || app.applyStatus.ToString() == "Viewed")
+                        @if (!app.isClosed && (app.applyStatus.ToString() == "Submitted" || app.applyStatus.ToString() == "Viewed"))
                         {
                             <form asp-controller="Applications" asp-action="Cancel" method="post" style="display:inline">
                                 <input type="hidden" name="applyId" value="@app.applyId" />

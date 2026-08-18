@@ -6,8 +6,15 @@
 
 <div style="display:flex; justify-content:space-between; align-items:center;">
     <h2>My Job Listings</h2>
-    <a asp-controller="Listings" asp-action="Create">+ Post a New Job</a>]
+    <a asp-controller="Listings" asp-action="Create">+ Post a New Job</a>
 </div>
+
+@if (TempData["ListingMessage"] != null)
+{
+    <div style="color:green">
+        <p>@TempData["ListingMessage"]</p>
+    </div>
+}
 
 @if (!Model.Any())
 {
@@ -48,15 +55,21 @@ else
                             View
                         </a>
 
-                        @if (!listing.isClosed)
-                        {
-                            <form asp-controller="Listings" asp-action="Close" method="post" style="display:inline">
-                                <input type="hidden" name="id" value="@listing.jobListId" />
+                        <form asp-controller="Listings" asp-action="Close" method="post" style="display:inline">
+                            <input type="hidden" name="id" value="@listing.jobListId" />
+                            @if (listing.isClosed)
+                            {
+                                <button type="submit" disabled title="This listing is already closed">
+                                    Close
+                                </button>
+                            }
+                            else
+                            {
                                 <button type="submit" onclick="return confirm('Close this job listing? Job seekers will no longer be able to apply.');">
                                     Close
                                 </button>
-                            </form>
-                        }
+                            }
+                        </form>
                     </td>
                 </tr>
             }

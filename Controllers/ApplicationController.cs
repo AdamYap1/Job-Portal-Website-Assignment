@@ -106,6 +106,7 @@ namespace Job_Portal_Website.Controllers
                     a.applyId,
                     a.jobListId,
                     a.JobListing.jobTitle,
+                    a.JobListing.isClosed,
                     a.applyStatus,
                     a.appliedDate
                 })
