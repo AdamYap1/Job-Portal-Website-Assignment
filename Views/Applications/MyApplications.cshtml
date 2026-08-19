@@ -1,4 +1,4 @@
-﻿@model IEnumerable<dynamic>
+﻿@model IEnumerable<MyApplicationsViewModel>
 
 @{
     ViewData["Title"] = "My Applications";
@@ -30,7 +30,7 @@ else
 
 @if (!Model.Any())
 {
-    <p>You haven't applied to any jobs yet.</p>
+    <p>You have not submitted any job applications yet.</p>
 }
 else
 {
@@ -38,8 +38,9 @@ else
         <thead>
             <tr>
                 <th>Job Title</th>
+                <th>Company Name</th>
+                <th>Application Date</th>
                 <th>Status</th>
-                <th>Applied Date</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -48,17 +49,18 @@ else
             {
                 <tr>
                     <td>
-                        <a asp-controller="Listings" asp-action="Details" asp-route-id="@app.jobListId">
-                            @app.jobTitle
+                        <a asp-controller="Listings" asp-action="Details" asp-route-id="@app.JobListId">
+                            @app.JobTitle
                         </a>
                     </td>
-                    <td>@app.applyStatus</td>
-                    <td>@app.appliedDate.ToString("dd MMM yyyy")</td>
+                    <td>@app.CompanyName</td>
+                    <td>@app.AppliedDate.ToString("dd MMM yyyy")</td>
+                    <td>@app.DisplayStatus</td>
                     <td>
-                        @if (app.applyStatus.ToString() == "Submitted" || app.applyStatus.ToString() == "Viewed")
+                        @if (app.ApplyStatus == ApplicationStatus.Submitted || app.ApplyStatus == ApplicationStatus.Viewed)
                         {
                             <form asp-controller="Applications" asp-action="Cancel" method="post" style="display:inline">
-                                <input type="hidden" name="applyId" value="@app.applyId" />
+                                <input type="hidden" name="applyId" value="@app.ApplyId" />
                                 <input type="hidden" name="returnTo" value="myapplications" />
                                 <button type="submit" onclick="return confirm('Withdraw this application?');">
                                     Cancel Application
