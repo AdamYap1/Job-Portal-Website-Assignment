@@ -63,13 +63,45 @@
 
 <hr />
 
+@if (TempData["ApplyError"] != null)
+{
+    <div style="color:red">
+        <p>@TempData["ApplyError"]</p>
+        @if (TempData["ShowResumeLink"] != null)
+        {
+            <p><a asp-controller="Profile" asp-action="Edit">Upload a resume</a></p>
+        }
+    </div>
+}
+
+@if (TempData["ApplySuccess"] != null)
+{
+    <div style="color:green">
+        <p>@TempData["ApplySuccess"]</p>
+    </div>
+}
+
 @* AC-6: role-based Apply button visibility. *@
 @if (canApply)
 {
-    <form asp-controller="Applications" asp-action="Apply" method="post">
-        <input type="hidden" name="jobListingId" value="@Model.jobListId" />
-        <button type="submit" class="btn btn-success">Apply for this job</button>
-    </form>
+    @if (ViewBag.MyApplyId != null)
+    {
+        <p>Status: <strong>@ViewBag.MyApplyStatus</strong></p>
+        <form asp-controller="Applications" asp-action="Cancel" method="post">
+            <input type="hidden" name="applyId" value="@ViewBag.MyApplyId" />
+            <input type="hidden" name="returnTo" value="details" />
+            <button type="submit" onclick="return confirm('Withdraw this application?');">
+                Cancel Application
+            </button>
+        </form>
+    }
+    else
+    {
+        <form asp-controller="Applications" asp-action="Apply" method="post">
+            <input type="hidden" name="jobListId" value="@Model.jobListId" />
+            <button type="submit">Apply Now</button>
+        </form>
+    }
 }
 else if (isEmployer)
 {

@@ -18,11 +18,11 @@ namespace Job_Portal_Website.Migrations
                     employerId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     companyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    employerEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    employerEmail = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     employerPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    employerDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    employerIndustry = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    logoPath = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    employerDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    employerIndustry = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    logoPath = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -36,11 +36,11 @@ namespace Job_Portal_Website.Migrations
                     jobSeekerId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     seekerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    seekerEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    seekerEmail = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     seekerPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    seekerSkills = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    seekerExp = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    resumePath = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    seekerSkills = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    seekerExp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    resumePath = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -56,9 +56,11 @@ namespace Job_Portal_Website.Migrations
                     jobTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     jobDesc = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     jobRequirements = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    jobSalary = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    jobSalary = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     jobLocation = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    employmentType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     isClosed = table.Column<bool>(type: "bit", nullable: false),
+                    isDeleted = table.Column<bool>(type: "bit", nullable: false),
                     postedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     employerId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -81,7 +83,6 @@ namespace Job_Portal_Website.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     jobSeekerId = table.Column<int>(type: "int", nullable: false),
                     jobListId = table.Column<int>(type: "int", nullable: false),
-                    JobListingjobListId = table.Column<int>(type: "int", nullable: false),
                     applyStatus = table.Column<int>(type: "int", nullable: false),
                     appliedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -89,8 +90,8 @@ namespace Job_Portal_Website.Migrations
                 {
                     table.PrimaryKey("PK_Application", x => x.applyId);
                     table.ForeignKey(
-                        name: "FK_Application_JobListing_JobListingjobListId",
-                        column: x => x.JobListingjobListId,
+                        name: "FK_Application_JobListing_jobListId",
+                        column: x => x.jobListId,
                         principalTable: "JobListing",
                         principalColumn: "jobListId",
                         onDelete: ReferentialAction.Cascade);
@@ -103,9 +104,9 @@ namespace Job_Portal_Website.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Application_JobListingjobListId",
+                name: "IX_Application_jobListId",
                 table: "Application",
-                column: "JobListingjobListId");
+                column: "jobListId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Application_jobSeekerId_jobListId",
@@ -114,9 +115,21 @@ namespace Job_Portal_Website.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Employer_employerEmail",
+                table: "Employer",
+                column: "employerEmail",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_JobListing_employerId",
                 table: "JobListing",
                 column: "employerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_JobSeeker_seekerEmail",
+                table: "JobSeeker",
+                column: "seekerEmail",
+                unique: true);
         }
 
         /// <inheritdoc />
