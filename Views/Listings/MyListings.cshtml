@@ -1,59 +1,86 @@
-﻿@model IEnumerable<dynamic>
+﻿@model IEnumerable<Job_Portal_Website.Models.JobListing>
+@model IEnumerable<dynamic>
 
 @{
     ViewData["Title"] = "My Job Listings";
 }
 
+<div class="container mt-4">
+    <h2 class="mb-4">My Job Listings</h2>
 <div style="display:flex; justify-content:space-between; align-items:center;">
     <h2>My Job Listings</h2>
     <a asp-controller="Listings" asp-action="Create">+ Post a New Job</a>
 </div>
 
+    @if (!Model.Any())
 @if (TempData["ListingMessage"] != null)
-{
+    {
+        <div class="alert alert-info">
+            You haven't posted any jobs yet.
+            <a asp-controller="Listings" asp-action="Create">Post one now</a>.
     <div style="color:green">
         <p>@TempData["ListingMessage"]</p>
-    </div>
-}
+        </div>
+    }
 
 @if (!Model.Any())
 {
     <p>You haven't posted any job listings yet.</p>
     <p><a asp-controller="Listings" asp-action="Create">Post your first job listing</a></p>
 }
-else
-{
+    else
+    {
+        <table class="table table-striped align-middle">
     <table border="1" cellpadding="8">
-        <thead>
-            <tr>
-                <th>Job Title</th>
-                <th>Status</th>
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Posted Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 <th>Posted Date</th>
                 <th>Applicants</th>
                 <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var job in Model)
             @foreach (var listing in Model)
-            {
-                <tr>
+                {
+                    <tr>
                     <td>@listing.jobTitle</td>
-                    <td>
+                        <td>
+                            <a asp-controller="Listings" asp-action="Details" asp-route-id="@job.jobListId">
+                                @job.jobTitle
+                            </a>
+                        </td>
+                        <td>@job.postedDate.ToString("dd MMM yyyy")</td>
+                        <td>
+                            @if (job.isDeleted)
+                            {
+                                <span class="badge bg-dark">Deleted</span>
+                            }
+                            else if (job.isClosed)
                         @if (listing.isClosed)
-                        {
+                            {
+                                <span class="badge bg-secondary">Closed</span>
                             <span style="color:gray">Closed</span>
-                        }
-                        else
-                        {
+                            }
+                            else
+                            {
+                                <span class="badge bg-success">Open</span>
                             <span style="color:green">Active</span>
-                        }
-                    </td>
+                            }
+                        </td>
                     <td>@listing.postedDate.ToString("dd MMM yyyy")</td>
                     <td>@listing.applicantCount</td>
-                    <td>
+                        <td>
+                            <a asp-controller="EmployerApplications" asp-action="ViewApplicants"
+                               asp-route-jobListId="@job.jobListId" class="btn btn-sm btn-outline-primary">
+                                View Applicants
                         <a asp-controller="Listings" asp-action="Details" asp-route-id="@listing.jobListId">
                             View
-                        </a>
+                            </a>
 
                         <form asp-controller="Listings" asp-action="Close" method="post" style="display:inline">
                             <input type="hidden" name="id" value="@listing.jobListId" />
@@ -70,9 +97,10 @@ else
                                 </button>
                             }
                         </form>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
