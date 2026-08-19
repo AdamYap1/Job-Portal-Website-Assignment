@@ -103,16 +103,11 @@ namespace Job_Portal_Website.Controllers
                 .Where(a => a.jobSeekerId == CurrentUserId)
                 .Select(a => new MyApplicationsViewModel
                 {
-                    a.applyId,
-                    a.jobListId,
-                    a.JobListing.jobTitle,
-                    a.JobListing.isClosed,
-                    a.applyStatus,
-                    a.appliedDate
                     ApplyId = a.applyId,
                     JobListId = a.jobListId,
                     JobTitle = a.JobListing.jobTitle,
                     CompanyName = a.JobListing.Employer.companyName,
+                    IsClosed = a.JobListing.isClosed,
                     ApplyStatus = a.applyStatus,
                     AppliedDate = a.appliedDate
                 })

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MyApplicationsViewModel>
+﻿@model IEnumerable<Job_Portal_Website.Models.MyApplicationsViewModel>
 
 @{
     ViewData["Title"] = "My Applications";
@@ -30,7 +30,7 @@ else
 
 @if (!Model.Any())
 {
-    <p>You have not submitted any job applications yet.</p>
+    <p>You haven't applied to any jobs yet.</p>
 }
 else
 {
@@ -38,11 +38,10 @@ else
         <thead>
             <tr>
                 <th>Job Title</th>
-                <th>Company Name</th>
-                <th>Application Date</th>
-                <th>Status</th>
+                <th>Company</th>
                 <th>Listing Status</th>
                 <th>Application Status</th>
+                <th>Applied Date</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -56,10 +55,8 @@ else
                         </a>
                     </td>
                     <td>@app.CompanyName</td>
-                    <td>@app.AppliedDate.ToString("dd MMM yyyy")</td>
-                    <td>@app.DisplayStatus</td>
                     <td>
-                        @if (app.isClosed)
+                        @if (app.IsClosed)
                         {
                             <span style="color:gray">Closed</span>
                         }
@@ -70,21 +67,19 @@ else
                     </td>
                     <td>
                         @{
-                            var statusText = app.applyStatus.ToString();
-                            var statusColor = statusText switch
+                            var statusColor = app.ApplyStatus switch
                             {
-                                "Accepted" => "green",
-                                "Rejected" => "red",
-                                "Viewed" => "blue",
+                                Job_Portal_Website.Models.ApplicationStatus.Accepted => "green",
+                                Job_Portal_Website.Models.ApplicationStatus.Rejected => "red",
+                                Job_Portal_Website.Models.ApplicationStatus.Viewed => "blue",
                                 _ => "black"
                             };
                         }
-                        <span style="color:@statusColor; font-weight:bold">@statusText</span>
+                        <span style="color:@statusColor; font-weight:bold">@app.DisplayStatus</span>
                     </td>
-                    <td>@app.appliedDate.ToString("dd MMM yyyy")</td>
+                    <td>@app.AppliedDate.ToString("dd MMM yyyy")</td>
                     <td>
-                        @if (app.ApplyStatus == ApplicationStatus.Submitted || app.ApplyStatus == ApplicationStatus.Viewed)
-                        @if (!app.isClosed && (app.applyStatus.ToString() == "Submitted" || app.applyStatus.ToString() == "Viewed"))
+                        @if (!app.IsClosed && (app.ApplyStatus == Job_Portal_Website.Models.ApplicationStatus.Submitted || app.ApplyStatus == Job_Portal_Website.Models.ApplicationStatus.Viewed))
                         {
                             <form asp-controller="Applications" asp-action="Cancel" method="post" style="display:inline">
                                 <input type="hidden" name="applyId" value="@app.ApplyId" />

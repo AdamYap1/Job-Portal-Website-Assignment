@@ -8,6 +8,7 @@ namespace Job_Portal_Website.Models
         public int JobListId { get; set; }
         public string JobTitle { get; set; }
         public string CompanyName { get; set; }
+        public bool IsClosed { get; set; }
         public ApplicationStatus ApplyStatus { get; set; }
         public DateTime AppliedDate { get; set; }
 
