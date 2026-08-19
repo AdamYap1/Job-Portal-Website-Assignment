@@ -51,6 +51,51 @@ namespace Job_Portal_Website.Controllers
             return RedirectToAction("Details", new { id = listing.jobListId });
         }
 
+        // ---------- US-10: View all posted job listings (Employer only) ----------
+        [Authorize(Roles = "Employer")]
+        [HttpGet]
+        public IActionResult MyListings()
+        {
+            var listings = _context.JobListing
+                .Where(l => l.employerId == CurrentUserId && !l.isDeleted)
+                .Select(l => new
+                {
+                    l.jobListId,
+                    l.jobTitle,
+                    l.isClosed,
+                    l.postedDate,
+                    applicantCount = l.Applications.Count()
+                })
+                .OrderByDescending(l => l.postedDate)
+                .ToList();
+
+            return View(listings);
+        }
+        // ---------- US-11: Close a job listing (Employer only) ----------
+        [Authorize(Roles = "Employer")]
+        [HttpPost]
+        public IActionResult Close(int id)
+        {
+            var listing = _context.JobListing.Find(id);
+
+            if (listing == null || listing.employerId != CurrentUserId)
+            {
+                return NotFound();
+            }
+
+            if (listing.isClosed)
+            {
+                TempData["ListingMessage"] = "This listing is already closed.";
+                return RedirectToAction("MyListings");
+            }
+
+            listing.isClosed = true;
+            _context.SaveChanges();
+
+            TempData["ListingMessage"] = "Listing closed successfully.";
+            return RedirectToAction("MyListings");
+        }
+
         // ================================================================
         // US-12: View the full details of a job listing
         // ================================================================
@@ -81,21 +126,42 @@ namespace Job_Portal_Website.Controllers
                 return View("Unavailable");
             }
 
-            // AC-3 and AC-4: the listing exists but is Closed or soft-Deleted.
-            if (listing == null || listing.isClosed || listing.isDeleted)
+            // Deleted listings are always blocked, for everyone.
+            if (listing.isDeleted)
             {
                 ViewBag.Message = "This job listing is no longer available.";
                 return View("Unavailable");
             }
 
-            // AC-6: the Apply button is shown ONLY to a logged-in Job Seeker.
-            // Employers and guests do not see it.
-            ViewBag.CanApply = User.Identity != null
-                   && User.Identity.IsAuthenticated
-                   && User.IsInRole("JobSeeker");
+            bool isAuthenticated = User.Identity != null && User.Identity.IsAuthenticated;
+            bool isJobSeeker = isAuthenticated && User.IsInRole("JobSeeker");
+            bool isOwningEmployer = isAuthenticated && User.IsInRole("Employer")
+                && listing.employerId == CurrentUserId;
 
-            // NEW: check if this job seeker already applied
-            if (ViewBag.CanApply == true)
+            bool hasApplied = false;
+            if (isJobSeeker)
+            {
+                var currentUserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                hasApplied = _context.Application
+                    .Any(a => a.jobSeekerId == currentUserId && a.jobListId == id);
+            }
+
+            // AC-3: a Closed listing is only viewable by the owning employer,
+            // or a job seeker who already applied before it closed. Everyone
+            // else (guests, other job seekers, other employers) is blocked.
+            if (listing.isClosed && !isOwningEmployer && !hasApplied)
+            {
+                ViewBag.Message = "This job listing is no longer available.";
+                return View("Unavailable");
+            }
+
+            // AC-6: the Apply button is shown ONLY to a logged-in Job Seeker,
+            // and only while the listing is still open.
+            ViewBag.CanApply = isJobSeeker && !listing.isClosed;
+
+            // Check if this job seeker already applied (used to show status/cancel,
+            // or the "already applied, now closed" message).
+            if (isJobSeeker)
             {
                 var currentUserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
                 var existingApplication = _context.Application

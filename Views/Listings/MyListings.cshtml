@@ -1,0 +1,78 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "My Job Listings";
+}
+
+<div style="display:flex; justify-content:space-between; align-items:center;">
+    <h2>My Job Listings</h2>
+    <a asp-controller="Listings" asp-action="Create">+ Post a New Job</a>
+</div>
+
+@if (TempData["ListingMessage"] != null)
+{
+    <div style="color:green">
+        <p>@TempData["ListingMessage"]</p>
+    </div>
+}
+
+@if (!Model.Any())
+{
+    <p>You haven't posted any job listings yet.</p>
+    <p><a asp-controller="Listings" asp-action="Create">Post your first job listing</a></p>
+}
+else
+{
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>Job Title</th>
+                <th>Status</th>
+                <th>Posted Date</th>
+                <th>Applicants</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var listing in Model)
+            {
+                <tr>
+                    <td>@listing.jobTitle</td>
+                    <td>
+                        @if (listing.isClosed)
+                        {
+                            <span style="color:gray">Closed</span>
+                        }
+                        else
+                        {
+                            <span style="color:green">Active</span>
+                        }
+                    </td>
+                    <td>@listing.postedDate.ToString("dd MMM yyyy")</td>
+                    <td>@listing.applicantCount</td>
+                    <td>
+                        <a asp-controller="Listings" asp-action="Details" asp-route-id="@listing.jobListId">
+                            View
+                        </a>
+
+                        <form asp-controller="Listings" asp-action="Close" method="post" style="display:inline">
+                            <input type="hidden" name="id" value="@listing.jobListId" />
+                            @if (listing.isClosed)
+                            {
+                                <button type="submit" disabled title="This listing is already closed">
+                                    Close
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="submit" onclick="return confirm('Close this job listing? Job seekers will no longer be able to apply.');">
+                                    Close
+                                </button>
+                            }
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

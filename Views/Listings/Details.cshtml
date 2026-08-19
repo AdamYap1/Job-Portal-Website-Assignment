@@ -29,6 +29,13 @@
 
 <h5 class="text-muted mb-4">@companyName</h5>
 
+@if (Model.isClosed)
+{
+    <div class="alert alert-warning" role="alert">
+        This job listing is closed and is no longer accepting new applications.
+    </div>
+}
+
 <div class="card mb-4">
     <div class="card-body">
         <dl class="row mb-0">
@@ -102,6 +109,14 @@
             <button type="submit">Apply Now</button>
         </form>
     }
+}
+else if (Model.isClosed && ViewBag.MyApplyId != null)
+{
+    @* Job seeker already applied, listing is now closed - show status, no Cancel/Apply *@
+    <p>Status: <strong>@ViewBag.MyApplyStatus</strong></p>
+    <div class="alert alert-info mb-0" role="alert">
+        This listing is now closed, so your application can no longer be withdrawn.
+    </div>
 }
 else if (isEmployer)
 {
