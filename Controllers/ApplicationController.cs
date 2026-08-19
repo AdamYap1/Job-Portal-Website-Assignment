@@ -101,7 +101,7 @@ namespace Job_Portal_Website.Controllers
             ViewBag.ResumePath = jobSeeker?.resumePath;
             var applications = _context.Application
                 .Where(a => a.jobSeekerId == CurrentUserId)
-                .Select(a => new
+                .Select(a => new MyApplicationsViewModel
                 {
                     a.applyId,
                     a.jobListId,
@@ -109,8 +109,14 @@ namespace Job_Portal_Website.Controllers
                     a.JobListing.isClosed,
                     a.applyStatus,
                     a.appliedDate
+                    ApplyId = a.applyId,
+                    JobListId = a.jobListId,
+                    JobTitle = a.JobListing.jobTitle,
+                    CompanyName = a.JobListing.Employer.companyName,
+                    ApplyStatus = a.applyStatus,
+                    AppliedDate = a.appliedDate
                 })
-                .OrderByDescending(a => a.appliedDate)
+                .OrderByDescending(a => a.AppliedDate)
                 .ToList();
 
             return View(applications);
